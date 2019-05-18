@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using WebPtoject.ExtraFunction;
 
 namespace WebProject.Models
 {
@@ -13,4 +15,7 @@ namespace WebProject.Models
         public string item_count { get; set; }
         public string total_count { get; set; }
     }
+
+
+    
 }

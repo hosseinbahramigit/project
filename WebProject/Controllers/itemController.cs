@@ -38,7 +38,7 @@ namespace WebProject.Controllers
 
         public ActionResult DeleteData(string id)
         {
-            var T = Models.repositoryS.DeleteData(id);
+            var T = Models.itemS.DeleteData(id);
             return View(T);
         }
     }

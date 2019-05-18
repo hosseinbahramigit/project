@@ -36,7 +36,7 @@ namespace WebProject.Models
             DbContext db = new DbContext(sq.ConnectionString());
             string query = "INSERT INTO [dbo].[item_category] ([shop_category_id] ,[name] ,[description]) VALUES (@shop_category_id ,'@name', '@description')";
 
-            return db.Database.ExecuteSqlCommand(shop_category_id, name, description);
+            return db.Database.ExecuteSqlCommand(query, shop_category_id, name, description);
         }
 
         public static int UpdateData(string id, string shop_category_id, string name, string description)

@@ -42,7 +42,7 @@ namespace WebProject.Models
             DbContext db = new DbContext(sq.ConnectionString());
             string query = "INSERT INTO [dbo].[item] ([repository_code] ,[item_category_id] ,[name] ,[count] ,[buy_price], [sell_price], [buy_date], [description] ) VALUES (@repository_code ,@item_category_id ,'@name',@count ,'@buy_price' , '@sell_price', '@buy_date' ,'@description')";
 
-            return db.Database.ExecuteSqlCommand(repository_code, item_category_id, name, count, buy_price, sell_price, buy_date, description);
+            return db.Database.ExecuteSqlCommand(query, repository_code, item_category_id, name, count, buy_price, sell_price, buy_date, description);
         }
 
         public static int UpdateData(string id, string repository_code, string item_category_id, string name, string count, string buy_price, string sell_price, string buy_date, string description)
