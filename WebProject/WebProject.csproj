@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\customerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\itemController.cs" />
     <Compile Include="Controllers\item_categoryController.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Controllers\orderController.cs" />
     <Compile Include="Controllers\providerController.cs" />
     <Compile Include="Controllers\repositoryController.cs" />
+    <Compile Include="Controllers\shop_categoryController.cs" />
     <Compile Include="ExtraFunction\SqlHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -236,12 +238,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\customer\" />
     <Folder Include="Views\item\" />
     <Folder Include="Views\item_category\" />
     <Folder Include="Views\order\" />
     <Folder Include="Views\order_item\" />
     <Folder Include="Views\provider\" />
     <Folder Include="Views\repository\" />
+    <Folder Include="Views\shop_category\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
