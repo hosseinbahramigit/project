@@ -1,0 +1,42 @@
+﻿@using WebProject.Models
+@model IList<WebProject.Models.customer>
+@{
+    ViewBag.Title = "گزارشگیری کلی";
+}
+<div class="row">
+    <p style="font-family: b nazanin;font-size: 40px;text-align: center;margin: 30px;">گزارشگیری کلی</p>
+
+
+    <p>تعداد مشتریان</p>
+    <p>@Model.Count.ToString()</p>
+
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <th>شماره مشتری</th>
+            <th>نام</th>
+            <th>نام خانوادگی</th>
+            <th>جنسیت</th>
+            <th>شماره تماس</th>
+            <th>ایمیل</th>
+        </tr>
+        
+        @foreach (var d in Model)
+        {
+            <tr>
+                <td>@d.id</td>
+                <td>@d.fname</td>
+                <td>@d.lname</td>
+@if (d.sex == 0)
+{
+                <td>خانم</td>
+}
+else
+{
+                <td>آقا</td>
+}
+                <td>@d.mobile</td>
+                <td>@d.email</td>
+            </tr>
+        }
+    </table>
+</div>

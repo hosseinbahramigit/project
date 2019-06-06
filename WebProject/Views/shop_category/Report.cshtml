@@ -1,0 +1,77 @@
+﻿@using WebProject.Models
+@model WebProject.Models.DataAllInformation
+@{
+    ViewBag.Title = "گزارشگیری کلی";
+}
+<div class="row">
+    <p style="font-family: b nazanin;font-size: 40px;text-align: center;margin: 30px;">گزارشگیری کلی</p>
+
+
+
+@using (Html.BeginForm())
+{
+
+    <select name="reportName1">
+        @foreach (var d in Model.repository)
+        {
+            <option value="@d.id">
+                @d.name
+            </option>
+        }
+    </select>
+
+    <select name="reportName2">
+        @foreach (var d in Model.shop_category)
+        {
+            <option value="@d.id">
+                @d.name
+            </option>
+        }
+    </select>
+
+    
+
+
+    <input type="submit" value="گزارش"/>
+}
+    <p>تعداد نوع محصولات این بخش</p>
+    <p>@Model.item.Count.ToString()</p>
+
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <th>ردیف</th>
+            <th>نام محصول</th>
+            <th>تعداد</th>
+            <th>قیمت خرید</th>
+            <th>قیمت فروش</th>
+        </tr>
+        
+        @foreach (var d in Model.item)
+        {
+            <tr>
+                <td>@d.id</td>
+                <td>@d.name</td>
+                @if (d.count == 0)
+                {
+                    <td style="background:#ff0000">@d.count</td>
+                }
+                else {
+                    if (d.count < 5)
+                    {
+                    <td style="background:#ffd800">@d.count</td>
+                    }
+                    else
+                    {
+                        if (d.count >= 5)
+                        {
+                            <td>@d.count</td>
+                        }
+                    }
+                }
+                
+                <td>@d.buy_price</td>
+                <td>@d.sell_price</td>
+            </tr>
+        }
+    </table>
+</div>

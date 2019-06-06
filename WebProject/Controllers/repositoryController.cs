@@ -31,14 +31,14 @@ namespace WebProject.Controllers
         }
 
 
-        public ActionResult UpdateData(string id, string name, string address, string employee, string total_repository_count, string description)
+        public ActionResult UpdateData(int id, string name, string address, string employee, string total_repository_count, string description)
         {
             var T = Models.repositoryS.UpdateData(id, name, address, employee, total_repository_count, description);
             return View(T);
         }
 
 
-        public ActionResult DeleteData(string id)
+        public ActionResult DeleteData(int id)
         {
             var T = Models.repositoryS.DeleteData(id);
             return View(T);

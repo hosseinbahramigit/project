@@ -9,10 +9,13 @@ namespace WebPtoject.ExtraFunction
 {
     public class SqlHandler
     {
-
+        
         public string ConnectionString()
         {
-            return (@"Data Source =.; Initial Catalog = repository; User Id=sa;Password=123;Integrated Security=true");
+            return (@"server=localhost,1433;database=repository;uid=sa;pwd=123;MultipleActiveResultSets=True;");
+
+
+           // return (@"Data Source = (local); Initial Catalog = repository; User Id=sa;Password=123;Integrated Security=true");
         }
 
         public SqlConnection MySqlConnection()

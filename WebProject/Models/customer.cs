@@ -13,7 +13,7 @@ namespace WebProject.Models
         public string fname { get; set; }
         public string lname { get; set; }
         public int age { get; set; }
-        public int sex { get; set; }
+        public byte sex { get; set; }
         public string mobile { get; set; }
         public string address { get; set; }
         public string email { get; set; }
@@ -25,14 +25,24 @@ namespace WebProject.Models
 
     public class customerS
     {
-        public static List<repository> SelectData(int? id)
+        public static List<customer> SelectData(int? id)
         {
             SqlHandler sq = new SqlHandler();
 
             DbContext db = new DbContext(sq.ConnectionString());
             string query = "SELECT * FROM customer WHERE Id = @id";
 
-            return db.Database.SqlQuery<repository>(query, id).ToList<repository>();
+            return db.Database.SqlQuery<customer>(query, id).ToList<customer>();
+        }
+
+        public static List<customer> SelectAllData()
+        {
+            SqlHandler sq = new SqlHandler();
+
+            DbContext db = new DbContext(sq.ConnectionString());
+            string query = "SELECT * FROM customer";
+
+            return db.Database.SqlQuery<customer>(query).ToList<customer>();
         }
 
 

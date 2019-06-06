@@ -15,16 +15,40 @@ namespace WebProject.Models
     }
 
 
+    public class DataAllInformation
+    {
+        public List<Models.shop_category> shop_category { get; set; }
+        public List<Models.repository> repository { get; set; }
+        public List<Models.item> item { get; set; }
+        public DataAllInformation()
+        {
+            this.shop_category = new List<Models.shop_category>();
+            this.repository = new List<Models.repository>();
+            this.item = new List<Models.item>();
+        }
+    }
+
     public class shop_categoryS
     {
-        public static List<repository> SelectData(int? id)
+        public static List<shop_category> SelectData(int? id)
         {
             SqlHandler sq = new SqlHandler();
 
             DbContext db = new DbContext(sq.ConnectionString());
-            string query = "SELECT * FROM shop_category WHERE Id = @id";
+            string query = "SELECT * FROM  [dbo].[shop_category] WHERE Id = {0}";
 
-            return db.Database.SqlQuery<repository>(query, id).ToList<repository>();
+            return db.Database.SqlQuery<shop_category>(query, id).ToList<shop_category>();
+        }
+
+
+        public static List<shop_category> SelectAllData()
+        {
+            SqlHandler sq = new SqlHandler();
+
+            DbContext db = new DbContext(sq.ConnectionString());
+            string query = "SELECT * FROM  [dbo].[shop_category]";
+
+            return db.Database.SqlQuery<shop_category>(query).ToList<shop_category>();
         }
 
 
@@ -33,28 +57,28 @@ namespace WebProject.Models
             SqlHandler sq = new SqlHandler();
 
             DbContext db = new DbContext(sq.ConnectionString());
-            string query = "INSERT INTO [dbo].[shop_category] ([name] ,[description]) VALUES ('@name' ,'@description')";
+            string query = "INSERT INTO [dbo].[shop_category] ([name] ,[description]) VALUES ({0} ,{1})";
 
             return db.Database.ExecuteSqlCommand(query, name, description);
         }
 
-        public static int UpdateData(string id, string name, string description)
+        public static int UpdateData(int id, string name, string description)
         {
             SqlHandler sq = new SqlHandler();
 
             DbContext db = new DbContext(sq.ConnectionString());
-            string query = "UPDATE [dbo].[shop_category] SET [name]='@name' ,[description]='@item_category_id' where id=@id";
+            string query = "UPDATE [dbo].[shop_category] SET [name]={1} ,[description]={2} where id={0}";
 
             return db.Database.ExecuteSqlCommand(query, id, name, description);
         }
 
 
-        public static int DeleteData(string id)
+        public static int DeleteData(int id)
         {
             SqlHandler sq = new SqlHandler();
 
             DbContext db = new DbContext(sq.ConnectionString());
-            string query = "DELETE FROM [dbo].[shop_category] where id=@id";
+            string query = "DELETE FROM [dbo].[shop_category] where id={0}";
 
             return db.Database.ExecuteSqlCommand(query, id);
         }

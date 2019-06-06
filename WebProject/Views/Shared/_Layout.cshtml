@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
+<body style="    font-size: 20px;font-family: b nazanin;direction: rtl;">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -17,15 +17,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("تست سامانه", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("صفحه اصلی", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("صفحه اصلی", "Index", "Home")</li>
                     <li>@Html.ActionLink("درباره نرم افزار", "About", "Home")</li>
-                    <li>@Html.ActionLink("ارتباط با پشتیبان", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("گزارش انبار", "Report", "shop_category")</li>
+                    <li>@Html.ActionLink("گزارش خرید", "Report", "order")</li>
+                    <li>@Html.ActionLink("گزارش مشتریان", "Report", "customer")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>پروژه انبارداری</p>
         </footer>
     </div>
 

@@ -1,0 +1,33 @@
+﻿@using WebProject.Models
+@model IList<WebProject.Models.order>
+@{
+    ViewBag.Title = "گزارشگیری کلی";
+}
+<div class="row">
+    <p style="font-family: b nazanin;font-size: 40px;text-align: center;margin: 30px;">گزارشگیری کلی</p>
+
+
+
+
+    <p>تعداد فروش</p>
+    <p>@Model.Count.ToString()</p>
+
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <th style="text-align: center;">ردیف</th>
+            <th style="text-align: center;">شماره مشتری</th>
+            <th style="text-align: center;">لیست خرید</th>
+            <th style="text-align: center;">قیمت فروش</th>
+        </tr>
+        
+        @foreach (var d in Model)
+        {
+            <tr>
+                <td>@d.id</td>
+                <td>@d.customer_name</td>
+                <td style="text-align: right;direction: ltr;">@d.item_list</td>
+                <td>@d.price</td>
+            </tr>
+        }
+    </table>
+</div>

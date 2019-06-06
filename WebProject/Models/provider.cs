@@ -19,14 +19,14 @@ namespace WebProject.Models
 
     public class providerS
     {
-        public static List<repository> SelectData(int? id)
+        public static List<provider> SelectData(int? id)
         {
             SqlHandler sq = new SqlHandler();
 
             DbContext db = new DbContext(sq.ConnectionString());
-            string query = "SELECT * FROM provider WHERE Id = @id";
+            string query = "SELECT * FROM [dbo].[provider] WHERE Id = {0}";
 
-            return db.Database.SqlQuery<repository>(query, id).ToList<repository>();
+            return db.Database.SqlQuery<provider>(query, id).ToList<provider>();
         }
 
 
@@ -35,28 +35,28 @@ namespace WebProject.Models
             SqlHandler sq = new SqlHandler();
 
             DbContext db = new DbContext(sq.ConnectionString());
-            string query = "INSERT INTO [dbo].[provider] ([name] ,[phone] ,[address] , [description]) VALUES ('@name' ,'@phone', '@address','@description')";
+            string query = "INSERT INTO [dbo].[provider] ([name] ,[phone] ,[address] , [description]) VALUES ({0} ,{1}, {2},{3})";
 
             return db.Database.ExecuteSqlCommand(query, name, phone, address, description);
         }
 
-        public static int UpdateData(string id, string name, string phone, string address, string description)
+        public static int UpdateData(int id, string name, string phone, string address, string description)
         {
             SqlHandler sq = new SqlHandler();
 
             DbContext db = new DbContext(sq.ConnectionString());
-            string query = "UPDATE [dbo].[provider] SET [name]='@name' ,[phone]='@phone' ,[address]='@address',[description]='@description' where id=@id";
+            string query = "UPDATE [dbo].[provider] SET [name]={1} ,[phone]={2} ,[address]={3},[description]={4} where id={0}";
 
             return db.Database.ExecuteSqlCommand(query, id, name, phone, address, description);
         }
 
 
-        public static int DeleteData(string id)
+        public static int DeleteData(int id)
         {
             SqlHandler sq = new SqlHandler();
 
             DbContext db = new DbContext(sq.ConnectionString());
-            string query = "DELETE FROM [dbo].[provider] where id=@id";
+            string query = "DELETE FROM [dbo].[provider] where id={0}";
 
             return db.Database.ExecuteSqlCommand(query, id);
         }

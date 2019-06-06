@@ -14,27 +14,27 @@ namespace WebProject.Controllers
             return View();
         }
 
-        public ActionResult SelectData(int? id)
+        public ActionResult SelectData(int id)
         {
             var T = Models.itemS.SelectData(id);
             return View(T);
         }
 
-        public ActionResult InsertData(string shop_category_id, string name, string description)
+        public ActionResult InsertData(int shop_category_id, string name, string description)
         {
             var T = Models.item_categoryS.InsertData(shop_category_id, name, description);
             return View(T);
         }
 
 
-        public ActionResult UpdateData(string id, string shop_category_id, string name, string description)
+        public ActionResult UpdateData(int id, int shop_category_id, string name, string description)
         {
             var T = Models.item_categoryS.UpdateData(id, shop_category_id, name, description);
             return View(T);
         }
 
 
-        public ActionResult DeleteData(string id)
+        public ActionResult DeleteData(int id)
         {
             var T = Models.item_categoryS.DeleteData(id);
             return View(T);

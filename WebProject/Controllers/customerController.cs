@@ -15,6 +15,17 @@ namespace WebProject.Controllers
         }
 
 
+        public ActionResult Report()
+        {
+            ViewBag.Title = "گزارشگیری";
+            ViewBag.Message = "گزارشگیری";
+
+            var D = Models.customerS.SelectAllData();
+
+            return View(D);
+        }
+
+
         public ActionResult SelectData(int? id)
         {
             var T = Models.customerS.SelectData(id);
