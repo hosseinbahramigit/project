@@ -20,6 +20,35 @@ namespace WebProject.Models
     }
 
 
+    public class DataAllInformationorder
+    {
+        public List<Models.customer> customers { get; set; }
+        public List<Models.repository> repositorys { get; set; }
+        public List<Models.item> items { get; set; }
+        public string Message { get; set; }
+        public string MessageError { get; set; }
+
+        public int Current_customers { get; set; }
+        public int Current_repositorys { get; set; }
+        public int Current_items { get; set; }
+        public int Current_Count { get; set; }
+
+        public DataAllInformationorder()
+        {
+            this.Current_Count = 0;
+            this.Current_customers = 0;
+            this.Current_repositorys = 0;
+            this.Current_items = 0;
+            this.Message = "";
+            this.MessageError = "";
+            this.repositorys = new List<Models.repository>();
+            this.customers = new List<Models.customer>();
+            this.items = new List<Models.item>();
+        }
+    }
+
+
+
     public class orderS
     {
         public static List<order> SelectData(int? id)
