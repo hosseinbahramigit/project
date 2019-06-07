@@ -1,0 +1,82 @@
+﻿@using WebProject.Models
+@model WebProject.Models.DataAllInformationorder
+@{
+    
+}
+
+<div class="row">
+
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        <p>@Model.Message</p>
+        <p style="color: red">@Model.MessageError</p>
+
+            <p>انبار</p>
+            <select name="buyName0">
+                @foreach (var d in Model.repositorys)
+                {
+                    if (d.id.Equals(Model.Current_repositorys))
+                    {
+                        <option value="@d.id">
+                            @d.name
+                        </option>
+                    }
+                    else
+                    {
+                        <option value="@d.id" selected>
+                            @d.name
+                        </option>
+                    }
+                }
+            </select>
+
+            <p>مشتری</p>
+            <select name="buyName1">
+                @foreach (var d in Model.customers)
+                {
+                    if (d.id.Equals(Model.Current_customers))
+                    {
+                        <option value="@d.id" selected>
+                            @d.fname @d.lname
+                        </option>
+                    }
+                    else
+                    {
+                        <option value="@d.id">
+                            @d.fname @d.lname
+                        </option>
+                    }
+                }
+            </select>
+
+            <p>کالا</p>
+            <select name="buyName2">
+                @foreach (var d in Model.items)
+                {
+                    if (d.id.Equals(Model.Current_items))
+                    {
+                        <option value="@d.id" selected>
+                            @d.name
+                        </option>
+                    }
+                    else
+                    {
+                        <option value="@d.id">
+                            @d.name
+                        </option>
+                    }
+                }
+            </select>
+
+            <p>تعداد</p>
+            <input type="text" name="buyName3" value="@Model.Current_Count"/>
+
+            
+
+            <input type="submit" value="ثبت سفارش" />
+    }
+</div>

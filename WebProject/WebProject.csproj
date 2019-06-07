@@ -238,6 +238,7 @@
     <Content Include="Views\shop_category\Report.cshtml" />
     <Content Include="Views\order\Report.cshtml" />
     <Content Include="Views\customer\Report.cshtml" />
+    <Content Include="Views\order\orderpage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
